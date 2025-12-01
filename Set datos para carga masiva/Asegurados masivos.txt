@@ -1,0 +1,10 @@
+cedula:0930412852, nombreCompleto:Bryan Joel Sosa, telefono:0998765432, edad:30
+cedula:0930412854, nombreCompleto:Maria Perez, telefono:0987654321, edad:25
+cedula:0930412855, nombreCompleto:Carlos Sanchez, telefono:0976543210, edad:40
+cedula:0930412856, nombreCompleto:Ana Torres, telefono:0965432109, edad:28
+cedula:0930412857, nombreCompleto:Pedro Martinez, telefono:0954321098, edad:35
+cedula:0930412858, nombreCompleto:Luisa Fernandez, telefono:0943210987, edad:22
+cedula:0930412859, nombreCompleto:Jorge Ramirez, telefono:0932109876, edad:33
+cedula:0930412860, nombreCompleto:Carolina Gomez, telefono:0921098765, edad:27
+cedula:0930412861, nombreCompleto:Ricardo Diaz, telefono:0910987654, edad:45
+cedula:0930412862, nombreCompleto:Valeria Morales, telefono:0909876543, edad:29

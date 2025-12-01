@@ -1,0 +1,61 @@
+<!-- MODAL -->
+<div class="modal fade show d-block" style="background: rgba(0,0,0,.5)">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          Registrar Seguro
+        </h5>
+        <button class="btn-close"
+                (click)="cerrarModal()">
+        </button>
+      </div>
+
+      <!-- FORM DINÁMICO -->
+      <div class="modal-body">
+        <form #form="ngForm">
+          <!-- Campos normales -->
+          <ng-container *ngFor="let campo of campos">
+            <div class="mb-3" *ngIf="!campo.hidden ? true : false">
+              <label class="fw-semibold">{{ campo.label }}</label>
+              <input
+                [(ngModel)]="formModel[campo.key]"
+                #model="ngModel"
+                [name]="campo.key"
+                class="form-control"
+                [type]="campo.type"
+                [disabled]="actualizar && campo.key === 'codigoSeguro'"
+                [required]="campo.required ?? false"
+                [attr.maxlength]="campo.maxLength"
+                [attr.minlength]="campo.minLength"
+                [class.is-invalid]="model.invalid &&(model.touched || model.dirty)">
+                <div class="invalid-feedback" *ngIf="model.invalid && (model.touched || model.dirty)">
+                      <div *ngIf="model.errors?.['required']">
+                          Este campo es obligatorio
+                      </div>
+                      <div *ngIf="model.errors?.['minlength']">
+                          Mínimo {{ campo.minLength }} caracteres
+                      </div>
+                      <div *ngIf="model.errors?.['maxlength']">
+                          Máximo {{ campo.maxLength }} caracteres
+                      </div>
+                </div>
+            </div>
+          </ng-container>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button 
+            class="btn btn-primary"
+            [disabled]="form.invalid || (actualizar && form.pristine)"
+            (click)="guardar()"> Guardar
+        </button>
+        <button 
+            class="btn btn-secondary"
+            (click)="cerrarModal()"> Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

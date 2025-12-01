@@ -1,0 +1,5 @@
+codigoSeguro: SEG0013011, nombreSeguro: Seguro Vida Básico, prima: 25.5, sumaAsegurada: 5000
+codigoSeguro: SEG0023011, nombreSeguro: Seguro Vida Premium, prima: 45, sumaAsegurada: 10000
+codigoSeguro: SEG0033011, nombreSeguro: Seguro Auto, prima: 35.75, sumaAsegurada: 8000
+codigoSeguro: SEG0043011, nombreSeguro: Seguro Hogar, prima: 18.2, sumaAsegurada: 6000
+codigoSeguro: SEG0053011, nombreSeguro: Seguro Salud, prima: 55, sumaAsegurada: 15000

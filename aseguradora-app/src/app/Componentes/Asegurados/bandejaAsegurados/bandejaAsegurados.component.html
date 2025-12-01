@@ -1,0 +1,17 @@
+<app-variables-reusables
+    [campos]="campos"
+    [datos]="datos"
+    (onEditar)="editarAsegurado($event)"
+    (onEliminar)="eliminarAsegurado($event)"
+    (onAsignar)="asignarSeguros($event.asegurado, $event.seguros)"
+    (onConsultar)="consultarAseguradosConSeguros($event)">
+</app-variables-reusables>
+
+<app-asegurados
+  *ngIf="mostrarModal && formModel && (actualizar || asignar || consultar)"
+  [formModel]="formModel"
+  [actualizar]="actualizar"
+  [asignar]="asignar"
+  [consultar]="consultar"
+  (cerrarModalEvent)="cerrarModal()">
+</app-asegurados>

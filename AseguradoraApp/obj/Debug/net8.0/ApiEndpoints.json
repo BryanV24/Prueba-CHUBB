@@ -1,0 +1,260 @@
+[
+  {
+    "ContainingType": "AseguradoraApp.Controllers.AseguradosController",
+    "Method": "ActualizarAsegurado",
+    "RelativePath": "api/Asegurados/ActualizarAsegurado",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "asegurado",
+        "Type": "Entidades.Modelos.Asegurados",
+        "IsRequired": true
+      },
+      {
+        "Name": "usuario",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AseguradoraApp.Controllers.AseguradosController",
+    "Method": "ConsultaSeguroPorCedula",
+    "RelativePath": "api/Asegurados/consultaSeguroPorCedula/{cedula}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cedula",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AseguradoraApp.Controllers.AseguradosController",
+    "Method": "EliminarAsegurado",
+    "RelativePath": "api/Asegurados/EliminarAsegurado/{AseguradoId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "AseguradoId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AseguradoraApp.Controllers.AseguradosController",
+    "Method": "InsertarAsegurado",
+    "RelativePath": "api/Asegurados/InsertarAsegurado",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "asegurados",
+        "Type": "Entidades.Modelos.Asegurados",
+        "IsRequired": true
+      },
+      {
+        "Name": "usuario",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AseguradoraApp.Controllers.AseguradosController",
+    "Method": "InsertarAseguradosMasivo",
+    "RelativePath": "api/Asegurados/InsertarAseguradosMasivo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "asegurado",
+        "Type": "System.Collections.Generic.List\u00601[[Entidades.Modelos.Asegurados, Entidades, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "usuario",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AseguradoraApp.Controllers.AseguradosController",
+    "Method": "ObtenerAsegurados",
+    "RelativePath": "api/Asegurados/ObtenerAsegurados",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AseguradoraApp.Controllers.AsignarSegurosAseguradosController",
+    "Method": "AsignarSeguro",
+    "RelativePath": "api/AsignarSegurosAsegurados/AsignarSegurosAsegurados",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "asignacionSegurosAsegurados",
+        "Type": "Entidades.DTOs.AsignacionSegurosAsegurados",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AseguradoraApp.Controllers.AutenticacionController",
+    "Method": "LoginUsuario",
+    "RelativePath": "api/Autenticacion/LoginUsuario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autenticacion",
+        "Type": "Entidades.Modelos.Autenticacion",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AseguradoraApp.Controllers.AutenticacionController",
+    "Method": "RegistrarUsuario",
+    "RelativePath": "api/Autenticacion/RegistrarUsuario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autenticacion",
+        "Type": "Entidades.Modelos.Autenticacion",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AseguradoraApp.Controllers.SegurosController",
+    "Method": "AxctualizarSeguro",
+    "RelativePath": "api/Seguros/ActualizarSeguro",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "seguro",
+        "Type": "Entidades.Modelos.Seguros",
+        "IsRequired": true
+      },
+      {
+        "Name": "usuario",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AseguradoraApp.Controllers.SegurosController",
+    "Method": "ConsultarAseguradoPorCodigoSeguro",
+    "RelativePath": "api/Seguros/ConsultarAseguradoPorCodigoSeguro/{codigoSeguro}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "codigoSeguro",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AseguradoraApp.Controllers.SegurosController",
+    "Method": "EliminarSeguro",
+    "RelativePath": "api/Seguros/EliminarSeguro/{seguroId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "seguroId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AseguradoraApp.Controllers.SegurosController",
+    "Method": "InsertarSeguro",
+    "RelativePath": "api/Seguros/InsertarSeguro",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "seguros",
+        "Type": "Entidades.Modelos.Seguros",
+        "IsRequired": true
+      },
+      {
+        "Name": "usuario",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AseguradoraApp.Controllers.SegurosController",
+    "Method": "InsertarSegurosMasivo",
+    "RelativePath": "api/Seguros/InsertarSegurosMasivo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "seguros",
+        "Type": "System.Collections.Generic.List\u00601[[Entidades.Modelos.Seguros, Entidades, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "usuario",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AseguradoraApp.Controllers.SegurosController",
+    "Method": "ConsultarSeguros",
+    "RelativePath": "api/Seguros/ObtenerSeguros",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

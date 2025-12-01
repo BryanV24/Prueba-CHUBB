@@ -1,0 +1,13 @@
+<app-variables-reusables-seguros
+    [campos]="campos"
+    [datos]="datos"
+    (onEditar)="editarSeguro($event)"
+    (onEliminar)="eliminarSeguro($event)">
+</app-variables-reusables-seguros>
+
+<app-seguros
+  *ngIf="mostrarModal && formModel && actualizar"
+  [formModel]="formModel"
+  [actualizar]="actualizar"
+  (cerrarModalEvent)="cerrarModal()">
+</app-seguros>

@@ -1,0 +1,40 @@
+<div class="d-flex">
+
+  <!-- SIDEBAR -->
+  <nav class="flex-column bg-primary text-white p-3 vh-100" style="width: 220px;">
+  <span class="fs-4 fw-bold mb-4 d-block">🛡️ SegurVida</span>
+  <ul class="nav nav-pills flex-column">
+    <li class="nav-item mb-2">
+      <a 
+        class="nav-link text-white sidebar-link"
+        routerLink="bandejaAsegurados"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
+        Asegurados
+      </a>
+    </li>
+    <li class="nav-item mb-2">
+      <a 
+        class="nav-link text-white sidebar-link"
+        routerLink="bandejaSeguros"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
+        Seguros
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="flex-grow-1 p-4">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<!-- FOOTER -->
+<footer class="text-center py-3 bg-light border-top mt-auto">
+  <span class="text-secondary">
+    © 2025 SegurVida — Sistema de Gestión de Seguros
+  </span>
+</footer>
+

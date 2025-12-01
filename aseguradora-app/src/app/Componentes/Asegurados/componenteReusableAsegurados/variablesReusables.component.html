@@ -1,0 +1,79 @@
+<h2>Bandeja de Asegurados</h2>
+
+<div class="mb-3">
+  <label for="fileUpload" class="form-label">Cargar asegurados</label>
+  <input type="file" id="fileUpload" (change)="onFileSelected($event)" accept=".xlsx,.xls,.txt" class="form-control">
+</div>
+<div class="d-flex justify-content-end mb-3">
+  <button class="btn btn-secondary" (click)="procesarArchivo()">Cargar Masivo</button>
+</div>
+
+<!-- TABLA -->
+<table class="table table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th *ngFor="let campo of campos">
+        {{ campo.label }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+     <tr *ngFor="let fila of datosPagina"> 
+    <td *ngFor="let campo of campos">
+      {{ fila[campo.key] }}
+      <ng-container *ngIf="campo.type === 'actions';">
+        <button class="btn btn-sm btn-primary me-2" (click)="consultarSegurosParaAsegurado(fila)">Asignar Seguros</button>
+        <button class="btn btn-sm btn-primary me-2" (click)="ConsultarSegurosDelAsegurado(fila)">Consultar los Seguros</button>
+        <button class="btn btn-sm btn-primary me-2" (click)="editar(fila)">Editar</button>
+        <button class="btn btn-sm btn-danger" (click)="eliminar(fila)">Eliminar</button>
+      </ng-container>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <!-- BOTON PARA AGREGAR UN NUEVO ASEGURADO -->
+  <button type="button"
+          class="btn btn-primary"
+          (click)="abrirModal()">
+    Agregar Asegurado
+  </button>
+  <!-- PAGINACIÓN -->
+  <nav aria-label="Paginación">
+    <ul class="pagination mb-0">
+      <li class="page-item" [class.disabled]="paginaActual === 1">
+        <button class="page-link"
+                (click)="paginaAnterior()">
+          Anterior
+        </button>
+      </li>
+      <li class="page-item"
+          *ngFor="let p of [].constructor(totalPaginas); let i = index"
+          [class.active]="paginaActual === i + 1">
+        <button class="page-link"
+                (click)="irAPagina(i + 1)">
+          {{ i + 1 }}
+        </button>
+      </li>
+      <li class="page-item"
+          [class.disabled]="paginaActual === totalPaginas">
+        <button class="page-link"
+                (click)="siguientePagina()">
+          Siguiente
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+
+
+<app-asegurados
+  *ngIf="mostrarModal"
+  [formModel]="formModel"
+  [actualizar]="actualizar"
+  [asignar]="asignar"
+  [consultar]="consultar"
+  (cerrarModalEvent)="cerrarModal()">
+</app-asegurados>

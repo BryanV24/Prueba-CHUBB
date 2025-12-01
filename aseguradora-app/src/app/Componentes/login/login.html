@@ -1,0 +1,76 @@
+<div class="auth-container">
+
+  <div class="card">
+
+    <div class="logo">
+      <span class="icon">🛡️</span>
+      <h2>SegurVida</h2>
+      <small>Protegiendo tu futuro</small>
+    </div>
+
+    <!-- LOGIN -->
+    <form *ngIf="modo === 'login'" #loginForm="ngForm">
+      <h4>Iniciar Sesión</h4>
+
+      <input type="email" 
+             required
+             placeholder="Correo electrónico"
+             [(ngModel)]="login.correo"
+             name="correo">
+
+      <input type="password"
+             required
+             placeholder="Contraseña"
+             [(ngModel)]="login.clave"
+             name="clave">
+
+      <button (click)="iniciarSesion()" [disabled]="loginForm.invalid">
+        Entrar
+      </button>
+
+      <p class="toggle">
+        ¿No tienes cuenta?
+        <a (click)="cambiarModo()">Registrarse</a>
+      </p>
+    </form>
+
+    <!-- REGISTRO -->
+    <form *ngIf="modo === 'registro'" #regForm="ngForm">
+      <h4>Crear Cuenta</h4>
+
+      <input type="text"
+             required
+             placeholder="Nombre Completo"
+             [(ngModel)]="registro.nombreCompleto"
+             name="nombreCompleto">
+
+      <input type="email"
+             required
+             placeholder="Correo electrónico"
+             [(ngModel)]="registro.correo"
+             name="correo">
+
+      <input type="password"
+             required
+             placeholder="Contraseña"
+             [(ngModel)]="registro.clave"
+             name="clave">
+
+      <input type="password"
+             required
+             placeholder="Confirmar contraseña"
+             [(ngModel)]="registro.confirmar"
+             name="confirmar">
+
+      <button (click)="registrarUsuario()" [disabled]="regForm.invalid">
+        Registrarse
+      </button>
+
+      <p class="toggle">
+        ¿Ya tienes cuenta?
+        <a (click)="cambiarModo()">Iniciar sesión</a>
+      </p>
+    </form>
+
+  </div>
+</div>

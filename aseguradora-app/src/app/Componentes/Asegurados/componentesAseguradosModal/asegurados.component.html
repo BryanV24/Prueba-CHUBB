@@ -1,0 +1,117 @@
+  <!-- MODAL -->
+  <div class="modal fade show d-block" style="background: rgba(0,0,0,.5)">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            {{
+              consultar ? 'Consulta de Seguros del Asegurado' :
+              asignar   ? 'Asignar Seguros al Asegurado' :
+              actualizar ? 'Editar Asegurado' :
+              'Registrar Asegurado'
+            }}
+          </h5>
+          <button class="btn-close"
+                  (click)="cerrarModal()">
+          </button>
+        </div>
+
+        <!-- FORM DINÁMICO -->
+        <div class="modal-body">
+          <form #form="ngForm">
+            <!-- Campos normales -->
+            <ng-container *ngFor="let campo of campos">
+              <div class="mb-3" 
+                  *ngIf="(!campo.hidden && (asignar ? campo.key === 'nombreCompleto' : true)) &&
+                  (!campo.hidden && (consultar ? (campo.key === 'nombreCompleto' || campo.key === 'cedula') : true))">
+                <label class="fw-semibold">{{ campo.label }}</label>
+                <input
+                  [(ngModel)]="formModel[campo.key]"
+                  #model="ngModel"
+                  [name]="campo.key"
+                  class="form-control"
+                  [type]="campo.type"
+                  [disabled]="actualizar && campo.key === 'cedula' || asignar && campo.key === 'nombreCompleto' 
+                  || (consultar && (campo.key === 'nombreCompleto' || campo.key === 'cedula'))"
+                  [required]="campo.required ?? false"
+                  [attr.maxlength]="campo.maxLength"
+                  [attr.minlength]="campo.minLength"
+                  [class.is-invalid]="model.invalid &&(model.touched || model.dirty)">
+                  <div class="invalid-feedback" *ngIf="model.invalid && (model.touched || model.dirty)">
+                        <div *ngIf="model.errors?.['required']">
+                            Este campo es obligatorio
+                        </div>
+                        <div *ngIf="model.errors?.['minlength']">
+                            Mínimo {{ campo.minLength }} caracteres
+                        </div>
+                        <div *ngIf="model.errors?.['maxlength']">
+                            Máximo {{ campo.maxLength }} caracteres
+                        </div>
+                  </div>
+              </div>
+            </ng-container>
+
+            <!-- Select para asignar seguros -->
+            <div class="mb-3" *ngIf="asignar">
+              <label class="fw-semibold">Asignar Seguros</label>
+              <div class="border p-2" style="max-height: 200px; overflow-y: auto;">
+                <div *ngFor="let seguro of seguros" class="form-check">
+                  <input 
+                    class="form-check-input"
+                    type="checkbox"
+                    [id]="'seguro-' + seguro.seguroId"
+                    [checked]="formModel.seguros?.includes(seguro.seguroId)"
+                    (change)="toggleSeguro(seguro.seguroId, $event.target.checked)">
+                  <label class="form-check-label" [for]="'seguro-' + seguro.seguroId">
+                    {{ seguro.nombreSeguro }} - {{ seguro.codigoSeguro }}
+                  </label>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <!-- LISTADO SOLO PARA CONSULTA -->
+            <div *ngIf="consultar">
+              <h6 class="fw-bold mb-2">Seguros del asegurado</h6>
+              <table class="table table-sm table-bordered">
+                <thead class="table-light">
+                  <tr>
+                    <th>Sec</th>
+                    <th>Seguro</th>
+                    <th>Código</th>
+                    <th>Suma Asegurada</th>
+                    <th>Prima</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let seguro of segurosConsultados; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ seguro.nombreSeguro }}</td>
+                    <td>{{ seguro.codigoSeguro }}</td>
+                    <td>{{ seguro.sumaAsegurada | number }}</td>
+                    <td>{{ seguro.prima | number }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+          <button *ngIf="!asignar && !consultar"
+              class="btn btn-primary"
+              [disabled]="form.invalid || (actualizar && form.pristine)"
+              (click)="guardar()"> Guardar
+          </button>
+          <button *ngIf="asignar"
+              class="btn btn-primary"
+              [disabled]="form.invalid"
+              (click)="asignarSeguros()"> Asignar
+          </button>
+          <button 
+              class="btn btn-secondary"
+              (click)="cerrarModal()"> Cerrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
